@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Căn chỉnh hai dòng chữ ở trung tâm</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #000;
+        }
+        
+        #text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        #text {
+            font-size: 48px;
+            font-weight: bold;
+            color: #db1212;
+            opacity: 0;
+            animation: reveal 4s ease-in-out forwards; /* Thời gian kéo dài lên 4s */
+            animation-fill-mode: forwards;
+        }
+        
+        #text2 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #db1212;
+            opacity: 0;
+            animation: reveal2 4s ease-in-out forwards; /* Thời gian kéo dài lên 4s */
+            animation-delay: 4s; /* Độ trễ ở thời điểm bắt đầu hiệu ứng */
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes reveal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes reveal2 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">
+        <span id="text">8 tháng 3 vui vẻ nha!!!</span>
+        <br>
+        <span id="text2">Chill Chill Đi!</span>
+    </div>
+    <script>
+        document.getElementById("text").addEventListener("animationend", function() {
+            document.getElementById("text").style.display = "none";
+            document.getElementById("text2").style.display = "block";
+        });
+    </script>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "index2.html";
+            }, 10000); // Chuyển sang trang 2 sau 5 giây
+        };
+      </script>
+</body>
+</html>
